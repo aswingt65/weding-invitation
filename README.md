@@ -42,7 +42,7 @@ npm run verify
 
 ## What is preserved
 
-- Green opening curtains, heart graphics, and animated reveal, with the requested angel artwork replacing the two Cupids.
+- Blush-pink curtains with graphite grain and a pearly gloss, with the angel artwork, heart graphics, and animated reveal. Each side uses one continuous image with no tiling joins. The corrected softer pink is preserved in `src/themes/curtain-soft-pink.css`; switch `--curtain-finish` to `var(--curtain-soft-pink)` in `src/styles.css` and rebuild to restore it. See `src/assets/blush-steel-gloss-texture.md` for both finishes and the generation prompt.
 - Original fonts, color palette, and overall invitation layout.
 - Engagement, wedding, reception, and contact sections with the supplied content.
 - Countdown logic and the post-wedding thank-you state, now using the December dates in India time.

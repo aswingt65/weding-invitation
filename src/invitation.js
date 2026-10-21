@@ -614,7 +614,7 @@
                         children: [
                           "Reception to follow at the ",
                           (0, s.jsx)("br", {}),
-                          " Holy Family Roman Catholic Church, Mukkad, Kollam.",
+                          " Holy Family Parish Hall, Mukkad, Kollam.",
                         ],
                       }),
                       (0, s.jsxs)("div", {
@@ -770,7 +770,7 @@
                       exit: { opacity: 0 },
                       transition: { duration: 1, delay: 1 },
                       className:
-                        "fixed inset-0 z-50 flex cursor-pointer overflow-hidden",
+                        "invitation-curtains fixed inset-0 z-50 flex cursor-pointer overflow-hidden",
                       onClick: () => t(!0),
                       children: [
                         (0, s.jsx)(c.P.div, {
@@ -784,11 +784,7 @@
                             restDelta: 0.001,
                           },
                           className:
-                            "relative h-full w-1/2 bg-[#C1E1C1] shadow-[20px_0_50px_rgba(0,0,0,0.6)]",
-                          style: {
-                            backgroundImage:
-                              "radial-gradient(circle at 100% 50%, rgba(0,0,0,0.3) 0%, transparent 70%), \n                                  repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(0,0,0,0.1) 41px, transparent 42px)",
-                          },
+                            "curtain-panel curtain-panel-left relative h-full w-1/2",
                           children: (0, s.jsx)("div", {
                             className:
                               "absolute right-8 top-1/2 -translate-y-1/2 text-white/10",
@@ -809,11 +805,7 @@
                             restDelta: 0.001,
                           },
                           className:
-                            "relative h-full w-1/2 bg-[#C1E1C1] shadow-[-20px_0_50px_rgba(0,0,0,0.6)]",
-                          style: {
-                            backgroundImage:
-                              "radial-gradient(circle at 0% 50%, rgba(0,0,0,0.3) 0%, transparent 70%),\n                                  repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(0,0,0,0.1) 41px, transparent 42px)",
-                          },
+                            "curtain-panel curtain-panel-right relative h-full w-1/2",
                           children: (0, s.jsx)("div", {
                             className:
                               "absolute left-8 top-1/2 -translate-y-1/2 text-white/10",
@@ -828,7 +820,7 @@
                           animate: { opacity: 1, scale: 1 },
                           transition: { duration: 1.5, ease: "easeOut" },
                           className:
-                            "absolute inset-0 flex flex-col items-center justify-center text-center text-white",
+                            "curtain-intro absolute inset-0 flex flex-col items-center justify-center text-center",
                           children: [
                             (0, s.jsx)(c.P.div, {
                               animate: {
@@ -841,7 +833,7 @@
                                 ease: "easeInOut",
                               },
                               className:
-                                "mb-6 rounded-full border border-white/20 p-8 backdrop-blur-md",
+                                "curtain-seal mb-6 rounded-full border p-8",
                               children: (0, s.jsx)(d.A, {
                                 className: "fill-white/20 text-white",
                                 size: 40,
@@ -853,7 +845,7 @@
                               children: "Open to Reveal",
                             }),
                             (0, s.jsx)("div", {
-                              className: "mt-4 h-px w-12 bg-white/30",
+                              className: "curtain-divider mt-4 h-px w-12",
                             }),
                             (0, s.jsxs)("div", {
                               className:
@@ -881,7 +873,7 @@
                                 }),
                                 (0, s.jsx)(c.P.h2, {
                                   animate: {
-                                    opacity: [0.5, 1, 0.5],
+                                    opacity: [0.8, 1, 0.8],
                                     y: [0, -2, 0],
                                   },
                                   transition: {

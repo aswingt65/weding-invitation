@@ -1,0 +1,37 @@
+/* Blush cotton-paper curtains, inspired by the supplied stationery reference. */
+.invitation-curtains {
+  --curtain-ink: #593e4b;
+  --curtain-rose: #ead3da;
+}
+.curtain-panel {
+  --curtain-shade-direction: 90deg;
+  background-color: #ead3da;
+  background-image:
+    linear-gradient(var(--curtain-shade-direction), #fff0 72%, #77465816 100%),
+    linear-gradient(115deg, #ffffff40 0%, #ffffff08 48%, #b88a9b0d 100%),
+    url('/assets/blush-paper-texture.png');
+  background-size: 100% 100%, 100% 100%, cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.curtain-panel-left {
+  box-shadow: inset -1px 0 0 #fff9, inset -12px 0 22px -22px #75465d;
+}
+.curtain-panel-right {
+  --curtain-shade-direction: 270deg;
+  box-shadow: inset 1px 0 0 #ad7c9040, inset 12px 0 22px -22px #75465d;
+}
+.curtain-panel > div { color: #754d5e1f; }
+.curtain-intro { color: var(--curtain-ink); }
+.curtain-intro h2 {
+  color: var(--curtain-ink);
+  text-shadow: 0 1px 0 #ffffff80;
+  filter: none;
+}
+.curtain-seal {
+  border-color: #9c708570;
+  background: #fff7fa26;
+  box-shadow: inset 0 1px 0 #fff9, 0 4px 18px #86596c0a;
+}
+.curtain-seal svg { color: var(--curtain-ink); fill: #754d5e12; }
+.curtain-divider { background: #754d5e66; }

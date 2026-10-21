@@ -1,5 +1,24 @@
 # Verification — 20 October 2026
 
+## Blush paper curtains — 21 October 2026
+
+### Continuous surfaces and glossy variation
+
+- Replaced the repeating 480px texture with a single centered `cover` image per panel and `no-repeat`, fixing the visible horizontal/vertical tile joins.
+- Preserved the original pink PNG unchanged and saved the complete corrected curtain CSS in `src/themes/curtain-soft-pink.css`. The live stylesheet retains both finishes with a single `--curtain-finish` selection.
+- Added a separate generated blush texture with darker graphite grain and pearly highlights, plus a gentle CSS sheen.
+- Checked both finishes in Chromium at 390×844, 430×932, 1440×900, and 1920×1080. All texture layers use no-repeat and the image layer uses cover; no horizontal overflow or page exceptions. Inspected mobile and desktop screenshots for the absence of texture joins.
+- Opening the invitation and sparkle cleanup passed. Build and reference/content checks pass.
+- Screenshots: `output/playwright/curtain-{glossy-pink,soft-pink}-{390,430,1440,1920}.png`.
+
+- Replaced the opening curtains' green fill and heavy dark shading with a locally bundled blush-pink paper texture, a fine grain, soft rose seam, and muted-plum opening text.
+- Kept the animated dark angels and existing opening sparkle effect.
+- Inspected opening screenshots at 390, 768, and 1440px; no horizontal overflow. Both angel images and the new texture load successfully.
+- Synchronized the initial reception text with the existing client-side edit to “Holy Family Parish Hall” to resolve a hydration mismatch.
+- Build, JavaScript syntax, reference integrity, and customized-content checks pass.
+- Final Chromium runs at all three widths reported no console or page errors; tapping opens the invitation and the sparkle overlay cleans up successfully.
+- Texture provenance and generation prompt: `src/assets/blush-paper-texture.md`. Screenshots: `output/playwright/blush-curtains-390.png`, `blush-curtains-768.png`, and `blush-curtains-1440.png`.
+
 ## Bride-side contact card and browser identity
 
 - Removed the groom's contact card from both initial HTML and client rendering. The bride's parents card remains centered, with two separate call links.
