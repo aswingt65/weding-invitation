@@ -19,6 +19,8 @@ To edit groom content, keep both `src/groom/index.html` (initial HTML) and `src/
 
 ## Bride customization
 
+The opened bride invitation now uses the supplied ivory marble, pearl, ribbon, and baby's-breath background, with a wide desktop adaptation, gentle drift, and subtle glints. Its front-page pink curtains and A & A wax seal are unchanged. Assets and the generation prompt are documented in `src/assets/bride-marble-background.md`.
+
 - Scripture: “Therefore what God has joined together, let no one separate.” — Mark 10:9.
 - Engagement: Saturday, 26 December 2026, 11:00 AM, Holy Family Roman Catholic Church, Mukkad, Kollam. Reception at the same venue, 12pm–9pm.
 - Wedding: Wednesday, 30 December 2026, 11:11 AM, Trinity Medical College Church, Thiruvananthapuram.

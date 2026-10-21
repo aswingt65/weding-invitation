@@ -1,5 +1,28 @@
 # Verification — 20 October 2026
 
+## Bride marble background — 21 October 2026
+
+- Used the supplied portrait JPG unchanged and generated a matching wide landscape adaptation. A responsive picture chooses between them by viewport aspect ratio; the assets are locally bundled and documented in `src/assets/bride-marble-background.md`.
+- Replaced the old rings and floating star icons with a continuous marble/ribbon/pearl/floral backdrop, a slow 32-second transform animation, and six subtle staggered edge glints. No repeated-image seams or moving content layout.
+- Confirmed the entire opening-curtain HTML is byte-for-byte identical to its pre-change snapshot, and all existing CSS was preserved before appending scoped interior rules. The new backdrop is hidden until opening. Groom source files remain unchanged.
+- Chromium at 320, 390, 768, 1440, and 1920px confirmed the correct responsive asset loads, no horizontal overflow, each full name fits on one line, opening/sparkle cleanup works, and no page exceptions occur. Inspected phone/desktop introduction and contact screenshots. Reduced-motion emulation disables image drift and glints.
+- Build, JavaScript syntax, content and reference-integrity checks pass. Screenshots: `output/playwright/bride-marble-*.png` and `marble-unchanged-cover-390.png`.
+
+## Bride name layout correction — 21 October 2026
+
+- Removed the desktop three-column couple grid. Bride name/details, ampersand, and groom name/details now remain in separate centered rows at every width.
+- Each full name uses a single line with type sized to its own available container; details wrap normally underneath. Initial HTML and client classes are synchronized.
+- Chromium checked widths 320, 360, 390, 430, 600, 759, 760, 768, 820, 1024, 1280, 1440, 1920, and 2560. Both name text ranges fit their parent on exactly one line; the family rows do not overlap; no detail text is clipped and there is no page-wide horizontal overflow. Mobile and desktop screenshots were inspected.
+- Made bride music controls compact below 600px to reduce obstruction of the family details, and added an accessible play/pause label. Build and both content checks pass; no browser page errors occurred. Groom source is unchanged.
+- Screenshots: `output/playwright/bride-names-*.png` and `bride-names-final-*.png`.
+
+## Bride wax-seal initials — 21 October 2026
+
+- Replaced the font-dependent monogram with a locally bundled transparent A & A wax-seal image inspired by the supplied reference. Confirmed actual PNG alpha transparency; the final asset is documented in `src/assets/bride-aa-wax-seal.md`.
+- Retained a subtle six-second breathing animation, with the existing reduced-motion override. Updated initial HTML and client rendering together, including the user's existing name-layout classes, to prevent hydration differences.
+- Chromium checks at 320, 390, 768, and 1440px confirmed image loading and successful opening/sparkle cleanup without page JavaScript errors. Mobile and desktop cover screenshots were visually inspected.
+- Build, syntax, and bride/groom content verification pass. Groom source files were not changed.
+
 ## Separate groom invitation — 21 October 2026
 
 - Added `/groom` and `/groom/` in the local server and Vercel configuration. All three local paths (`/`, `/groom`, `/groom/`) return HTTP 200. Live Vercel deployment has not been performed as part of this change.

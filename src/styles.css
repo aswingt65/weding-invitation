@@ -2938,3 +2938,149 @@ section > div > .venue-location { margin-top: 3rem; }
 }
 .curtain-seal svg { color: var(--curtain-ink); fill: #754d5e12; }
 .curtain-divider { background: #754d5e66; }
+
+/* Sculpted wax seal; lettering is embedded to avoid font fallback differences. */
+.curtain-monogram {
+  position: relative;
+  display: block;
+  width: clamp(9rem, 34vw, 12rem);
+  aspect-ratio: 1;
+  flex: none;
+  filter: drop-shadow(0 5px 7px #73535c24);
+}
+.curtain-monogram-art {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  user-select: none;
+}
+.couple-introduction { width: 100%; }
+.couple-names {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 44rem;
+  gap: 1.75rem;
+  container-type: inline-size;
+}
+.couple-person {
+  width: 100%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.couple-name {
+  /* Each full name occupies its own line, sized to the available column. */
+  font-size: min(3.5rem, 8.4cqw);
+  white-space: nowrap;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+  margin: 0 0 1.1rem;
+  text-shadow: 0 1px 0 #fff8;
+}
+.couple-person > div {
+  width: 100%;
+  max-width: 36rem;
+  line-height: 1.75;
+  overflow-wrap: anywhere;
+}
+.couple-person .family-detail-phones {
+  flex-wrap: wrap;
+  column-gap: 1.25rem;
+  row-gap: 0;
+}
+.couple-amp { margin: 0; background: #fff8fb55; }
+@media (max-width: 599px) {
+  .bride-audio-control { right: 12px; bottom: max(12px, env(safe-area-inset-bottom)); }
+  .bride-audio-control > div { padding: 4px; }
+  .bride-audio-control > div > div { display: none; }
+  .bride-audio-control button { width: 44px; height: 44px; }
+  .bride-share-control { left: 12px; bottom: max(12px, env(safe-area-inset-bottom)); }
+  .bride-share-control > button { width: 44px; height: 44px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .curtain-monogram { transform: none !important; }
+}
+
+/* Bride interior only: reference marble, ribbon, pearls and baby's breath.
+   The opening curtain styles above and the groom theme remain independent. */
+.bride-marble-invitation { background: #f8f6f2; }
+.bride-marble-backdrop {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1.8s ease, visibility 1.8s;
+}
+.bride-marble-backdrop.is-visible { opacity: 1; visibility: visible; }
+.bride-marble-picture {
+  position: absolute;
+  inset: -12px;
+  display: block;
+  transform: scale(1.015);
+  transform-origin: center;
+}
+.bride-marble-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.bride-marble-backdrop.is-visible .bride-marble-picture {
+  animation: bride-marble-drift 32s ease-in-out infinite alternate;
+}
+.bride-marble-soften {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #fffdf900 0%, #fffdf938 23%, #fffdf96b 50%, #fffdf938 77%, #fffdf900 100%);
+}
+.bride-marble-glint {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  opacity: 0;
+  background: radial-gradient(circle, #fffef9 0%, #fff9e899 15%, transparent 65%);
+}
+.bride-marble-glint::before,
+.bride-marble-glint::after {
+  position: absolute;
+  content: '';
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(90deg, transparent, #fff9df, transparent);
+}
+.bride-marble-glint::before { width: 16px; height: 1px; }
+.bride-marble-glint::after { width: 1px; height: 16px; background: linear-gradient(0deg, transparent, #fff9df, transparent); }
+.bride-marble-backdrop.is-visible .bride-marble-glint {
+  animation: bride-marble-glimmer 9s ease-in-out var(--glint-delay) infinite;
+}
+.bride-marble-glint-0 { left: 8%; top: 18%; }
+.bride-marble-glint-1 { right: 7%; top: 72%; }
+.bride-marble-glint-2 { left: 15%; bottom: 9%; }
+.bride-marble-glint-3 { right: 12%; bottom: 16%; }
+.bride-marble-glint-4 { left: 5%; top: 35%; }
+.bride-marble-glint-5 { right: 9%; top: 12%; }
+@keyframes bride-marble-drift {
+  from { transform: translate3d(-3px, -4px, 0) scale(1.015); }
+  to { transform: translate3d(3px, 4px, 0) scale(1.035); }
+}
+@keyframes bride-marble-glimmer {
+  0%, 38%, 68%, 100% { opacity: 0; transform: scale(.65); }
+  52% { opacity: .75; transform: scale(1); }
+}
+@media (max-width: 599px) {
+  .bride-marble-soften { background: #fffdf926; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bride-marble-backdrop { transition: opacity .2s ease; }
+  .bride-marble-backdrop.is-visible .bride-marble-picture { animation: none; transform: none; }
+  .bride-marble-backdrop.is-visible .bride-marble-glint { animation: none; display: none; }
+}

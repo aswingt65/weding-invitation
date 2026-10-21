@@ -129,7 +129,7 @@
                 });
           }, [t]),
           (0, s.jsxs)("div", {
-            className: "fixed bottom-6 right-6 z-40",
+            className: "bride-audio-control fixed bottom-6 right-6 z-40",
             children: [
               (0, s.jsx)("audio", { ref: d, src: "/card-audio.mp3", loop: !0 }),
               (0, s.jsx)(o.N, {
@@ -143,6 +143,7 @@
                       "flex items-center gap-3 rounded-full border border-[#8b7355]/20 bg-white/80 p-2 pr-4 shadow-lg backdrop-blur-md",
                     children: [
                       (0, s.jsx)("button", {
+                        "aria-label": a ? "Pause music" : "Play music",
                         onClick: () => {
                           d.current &&
                             (a ? d.current.pause() : d.current.play(), n(!a));
@@ -226,7 +227,7 @@
               initial: { opacity: 0, scale: 0 },
               animate: t ? { opacity: 1, scale: 1 } : {},
               transition: { duration: 0.5, delay: 5 },
-              className: "fixed bottom-8 left-8 z-[100]",
+              className: "bride-share-control fixed bottom-8 left-8 z-[100]",
               children: (0, s.jsxs)("button", {
                 onClick: x,
                 className:
@@ -730,26 +731,31 @@
           ],
         });
       }
+      function BrideMarbleBackdrop({ open }) {
+        return (0, s.jsxs)("div", {
+          className: "bride-marble-backdrop" + (open ? " is-visible" : ""),
+          "aria-hidden": true,
+          children: [
+            (0, s.jsxs)("picture", {
+              className: "bride-marble-picture",
+              children: [
+                (0, s.jsx)("source", { media: "(min-aspect-ratio: 1/1)", srcSet: "/assets/bride-marble-landscape.png" }),
+                (0, s.jsx)("img", { src: "/assets/bride-marble-portrait.jpg", alt: "", width: 735, height: 1105, className: "bride-marble-image", decoding: "async" })
+              ]
+            }),
+            (0, s.jsx)("div", { className: "bride-marble-soften" }),
+            ...Array.from({ length: 6 }, (_, index) => (0, s.jsx)("span", {
+              className: "bride-marble-glint bride-marble-glint-" + index,
+              style: { "--glint-delay": (-index * 1.7) + "s" }
+            }, index))
+          ]
+        });
+      }
       function M() {
         let [e, t] = (0, i.useState)(!1),
-          [a, b] = (0, i.useState)([]),
-          [f, y] = (0, i.useState)(!1),
-          { scrollY: j } = (0, r.L)(),
-          w = (0, l.G)(j, [0, 2e3], [0, 400]),
-          v = (0, l.G)(j, [0, 2e3], [0, -300]),
-          N = (0, l.G)(j, [0, 2e3], [0, 200]),
-          k = (0, l.G)(j, [0, 2e3], [0, -100]);
+          [f, y] = (0, i.useState)(!1);
         return (
           i.useEffect(() => {
-            b(
-              [...Array(12)].map((e, t) => ({
-                id: t,
-                size: 16 + 20 * Math.random(),
-                x: 100 * Math.random() + "vw",
-                duration: 5 + 5 * Math.random(),
-                delay: 5 * Math.random(),
-              })),
-            );
             let e = setTimeout(() => {
               let e = new Date("2026-12-30T11:11:00+05:30").getTime();
               y(new Date().getTime() > e);
@@ -758,7 +764,7 @@
           }, []),
           (0, s.jsxs)("main", {
             className:
-              "relative min-h-screen overflow-hidden bg-[#fdfcf8] selection:bg-[#8b7355]/20",
+              "bride-marble-invitation relative min-h-screen overflow-hidden bg-[#fdfcf8] selection:bg-[#8b7355]/20",
             children: [
               e && (0, s.jsx)(RevealSparkles, {}),
               (0, s.jsx)(o.N, {
@@ -824,19 +830,22 @@
                           children: [
                             (0, s.jsx)(c.P.div, {
                               animate: {
-                                scale: [1, 1.05, 1],
-                                opacity: [0.8, 1, 0.8],
+                                scale: [1, 1.018, 1],
                               },
                               transition: {
                                 repeat: 1 / 0,
-                                duration: 3,
+                                duration: 6,
                                 ease: "easeInOut",
                               },
-                              className:
-                                "curtain-seal mb-6 rounded-full border p-8",
-                              children: (0, s.jsx)(d.A, {
-                                className: "fill-white/20 text-white",
-                                size: 40,
+                              className: "curtain-monogram mb-6",
+                              children: (0, s.jsx)("img", {
+                                src: "/assets/bride-aa-wax-seal.png",
+                                alt: "Anthea and Arun — A & A wax-seal monogram",
+                                width: 1254,
+                                height: 1254,
+                                className: "curtain-monogram-art",
+                                fetchPriority: "high",
+                                draggable: false,
                               }),
                             }),
                             (0, s.jsx)("h2", {
@@ -922,7 +931,7 @@
                   className: "flex flex-col items-center text-center",
                   children: [
                     (0, s.jsxs)("div", {
-                      className: "mb-12 flex flex-col items-center",
+                      className: "couple-introduction mb-12 flex flex-col items-center",
                       children: [
                         (0, s.jsxs)(c.P.div, {
                           initial: { opacity: 0, y: 20 },
@@ -954,7 +963,7 @@
                         }),
                         (0, s.jsxs)("div", {
                           className:
-                            "mt-12 flex flex-col items-center justify-center gap-6 md:gap-8",
+                            "couple-names mt-12 flex flex-col items-center justify-center gap-6 md:gap-8",
                           children: [
                             (0, s.jsxs)(c.P.div, {
                               initial: { opacity: 0, y: 20 },
@@ -965,11 +974,11 @@
                                 ease: "easeOut",
                               },
                               className:
-                                "flex flex-col items-center text-center",
+                                "couple-person flex flex-col items-center text-center",
                               children: [
                                 (0, s.jsx)("h1", {
                                   className:
-                                    "font-sans font-bold tracking-[0.2em] uppercase text-2xl sm:text-5xl text-accent md:text-6xl mb-6",
+                                    "couple-name font-serif font-medium text-accent",
                                   children: "Dr. Anthea Judy Gilbert",
                                 }),
                                 (0, s.jsxs)("div", {
@@ -1007,10 +1016,10 @@
                                 type: "spring",
                               },
                               className:
-                                "flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-full border border-accent/30 shrink-0",
+                                "couple-amp flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-full border border-accent/30 shrink-0",
                               children: (0, s.jsx)("span", {
-                                className:
-                                  "font-serif text-3xl sm:text-4xl italic text-accent",
+                                  className:
+                                    "font-serif text-3xl sm:text-4xl italic text-accent",
                                 children: "&",
                               }),
                             }),
@@ -1023,11 +1032,11 @@
                                 ease: "easeOut",
                               },
                               className:
-                                "flex flex-col items-center text-center",
+                                "couple-person flex flex-col items-center text-center",
                               children: [
                                 (0, s.jsx)("h1", {
                                   className:
-                                    "text-2xl sm:text-5xl font-sans font-bold tracking-[0.2em] uppercase text-accent md:text-6xl mb-6",
+                                    "couple-name font-serif font-medium text-accent",
                                   children: "Dr. Arun Joy Thomas",
                                 }),
                                 (0, s.jsxs)("div", {
@@ -1256,71 +1265,7 @@
                 }),
               }),
               (0, s.jsx)(P, { isOpen: e }),
-              (0, s.jsxs)(c.P.div, {
-                initial: { opacity: 0 },
-                animate: e ? { opacity: 0.05 } : {},
-                transition: { duration: 3, delay: 1.5 },
-                className: "pointer-events-none fixed inset-0 z-0",
-                children: [
-                  (0, s.jsx)(c.P.div, {
-                    style: { y: w },
-                    className:
-                      "absolute -left-20 -top-20 h-96 w-96 rounded-full border-[40px] border-[#8b7355]",
-                  }),
-                  (0, s.jsx)(c.P.div, {
-                    style: { y: v },
-                    className:
-                      "absolute -bottom-20 -right-20 h-96 w-96 rounded-full border-[40px] border-[#8b7355]",
-                  }),
-                  (0, s.jsx)(c.P.div, {
-                    style: { y: N },
-                    className:
-                      "absolute top-1/4 right-10 h-64 w-64 rounded-full border-[20px] border-[#8b7355]",
-                  }),
-                  (0, s.jsx)(c.P.div, {
-                    style: { y: k },
-                    className:
-                      "absolute bottom-1/4 left-10 h-48 w-48 rounded-full border-[15px] border-[#8b7355]",
-                  }),
-                  (0, s.jsx)(c.P.div, {
-                    style: { y: v },
-                    className: "absolute top-[15%] left-[10%] text-[#8b7355]",
-                    children: (0, s.jsx)(d.A, { size: 120, strokeWidth: 0.1 }),
-                  }),
-                  (0, s.jsx)(c.P.div, {
-                    style: { y: N },
-                    className: "absolute top-[60%] right-[15%] text-[#8b7355]",
-                    children: (0, s.jsx)(d.A, { size: 80, strokeWidth: 0.1 }),
-                  }),
-                  (0, s.jsx)(c.P.div, {
-                    style: { y: w },
-                    className:
-                      "absolute bottom-[10%] left-[20%] text-[#8b7355]",
-                    children: (0, s.jsx)(p.A, { size: 100, strokeWidth: 0.1 }),
-                  }),
-                ],
-              }),
-              e &&
-                (0, s.jsx)("div", {
-                  className: "pointer-events-none fixed inset-0 z-20",
-                  children: a.map((e) =>
-                    (0, s.jsx)(
-                      c.P.div,
-                      {
-                        initial: { opacity: 0, y: "100vh" },
-                        animate: { opacity: [0, 1, 0], y: "-10vh", x: e.x },
-                        transition: {
-                          duration: e.duration,
-                          repeat: 1 / 0,
-                          delay: e.delay,
-                        },
-                        className: "absolute text-[#8b7355]/20",
-                        children: (0, s.jsx)(p.A, { size: e.size }),
-                      },
-                      e.id,
-                    ),
-                  ),
-                }),
+              (0, s.jsx)(BrideMarbleBackdrop, { open: e }),
               (0, s.jsx)(g, { isOpen: e }),
             ],
           })
