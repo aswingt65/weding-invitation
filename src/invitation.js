@@ -751,6 +751,24 @@
           ]
         });
       }
+      function BrideFloatingSparkles() {
+        return (0, s.jsx)("div", {
+          className: "bride-floating-sparkles",
+          "aria-hidden": true,
+          children: Array.from({ length: 12 }, (_, index) =>
+            (0, s.jsx)("span", {
+              className: "bride-floating-sparkle",
+              style: {
+                left: (4 + ((index * 29) % 90)) + "%",
+                "--sparkle-duration": (10 + (index % 5) * 1.5) + "s",
+                "--sparkle-delay": (-index * 2.3) + "s",
+                "--sparkle-sway": (index % 2 ? 18 : -18) + "px",
+              },
+              children: (0, s.jsx)(p.A, { size: 16 + (index % 4) * 5 }),
+            }, index)
+          ),
+        });
+      }
       function M() {
         let [e, t] = (0, i.useState)(!1),
           [f, y] = (0, i.useState)(!1);
@@ -1266,6 +1284,7 @@
               }),
               (0, s.jsx)(P, { isOpen: e }),
               (0, s.jsx)(BrideMarbleBackdrop, { open: e }),
+              e && (0, s.jsx)(BrideFloatingSparkles, {}),
               (0, s.jsx)(g, { isOpen: e }),
             ],
           })

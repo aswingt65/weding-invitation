@@ -3008,6 +3008,42 @@ section > div > .venue-location { margin-top: 3rem; }
 /* Bride interior only: reference marble, ribbon, pearls and baby's breath.
    The opening curtain styles above and the groom theme remain independent. */
 .bride-marble-invitation { background: #f8f6f2; }
+/* Hide only the bride page's scrollbar; native wheel, touch and keyboard
+   scrolling stay enabled. The groom page uses this stylesheet too. */
+html:has(.bride-marble-invitation),
+body:has(.bride-marble-invitation) { scrollbar-width: none; }
+html:has(.bride-marble-invitation)::-webkit-scrollbar,
+body:has(.bride-marble-invitation)::-webkit-scrollbar { display: none; }
+.bride-floating-sparkles {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  overflow: hidden;
+  pointer-events: none;
+  animation: bride-sparkles-appear 2s ease both;
+}
+.bride-floating-sparkle {
+  position: absolute;
+  top: 0;
+  color: #8b7355;
+  opacity: 0;
+  animation: bride-sparkle-rise var(--sparkle-duration) linear var(--sparkle-delay) infinite;
+}
+@keyframes bride-sparkles-appear {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes bride-sparkle-rise {
+  0% { opacity: 0; transform: translate3d(0, 105vh, 0) rotate(-8deg); }
+  18% { opacity: .24; }
+  50% { opacity: .3; transform: translate3d(var(--sparkle-sway), 48vh, 0) rotate(8deg); }
+  82% { opacity: .24; }
+  100% { opacity: 0; transform: translate3d(0, -10vh, 0) rotate(-8deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bride-floating-sparkles { display: none; animation: none; }
+  .bride-floating-sparkle { animation: none; }
+}
 .bride-marble-backdrop {
   position: fixed;
   inset: 0;
