@@ -23,7 +23,7 @@ for (const value of [
   '9207148109', '9446590351', '9497816261', '9497331582',
   '26th December 2026', '30th December 2026',
   'Holy Family Roman Catholic Church',
-  'Trinity (Medical College) Mar Thoma Syrian Church',
+  'Trinity Medical College Church',
   'Sooryaprabha Convention Centre',
   'https://maps.app.goo.gl/9XNfZS7HpaZpu4T96',
   'https://maps.app.goo.gl/gGeWqZYqqkfbE4QLA',

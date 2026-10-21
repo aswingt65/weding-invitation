@@ -1080,7 +1080,7 @@
                             }),
                             (0, s.jsx)("p", { children: "AT 11:11 AM" }),
                             (0, s.jsx)("p", {
-                              children: "AT TRINITY (MEDICAL COLLEGE) MAR THOMA SYRIAN CHURCH,",
+                              children: "AT TRINITY MEDICAL COLLEGE CHURCH,",
                             }),
                             (0, s.jsx)("p", {
                               children: "THIRUVANANTHAPURAM.",
@@ -1234,7 +1234,7 @@
                                     size: 24,
                                   }),
                                   title: "Where",
-                                  content: "Trinity (Medical College) Mar Thoma Syrian Church",
+                                  content: "Trinity Medical College Church",
                                   subContent: "Thiruvananthapuram",
                                 }),
                               ],
@@ -1243,7 +1243,7 @@
                             (0, s.jsxs)("div", {
                               className: "wedding-venue-grid",
                               children: [
-                                (0, s.jsx)(VenueMap, {"label":"Wedding church","title":"Trinity (Medical College) Mar Thoma Syrian Church","address":"Thiruvananthapuram","href":"https://maps.app.goo.gl/gGeWqZYqqkfbE4QLA","embed":"https://www.google.com/maps?q=8.5173548,76.9318288&z=16&output=embed","action":"Directions to church"}),
+                                (0, s.jsx)(VenueMap, {"label":"Wedding church","title":"Trinity Medical College Church","address":"Thiruvananthapuram","href":"https://maps.app.goo.gl/gGeWqZYqqkfbE4QLA","embed":"https://www.google.com/maps?q=8.5173548,76.9318288&z=16&output=embed","action":"Directions to church"}),
                                 (0, s.jsx)(VenueMap, {"label":"Reception venue","intro":"Reception to follow at the","title":"Sooryaprabha Convention Centre","address":"Mannanthala, Thiruvananthapuram","href":"https://maps.app.goo.gl/dwpdAW2Uzjs1xFCW9","embed":"https://www.google.com/maps?q=8.565688,76.9440848&z=16&output=embed","action":"Directions to reception"})
                               ]
                             }),
