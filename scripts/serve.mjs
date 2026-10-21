@@ -16,6 +16,7 @@ const server = http.createServer(async (req, res) => {
   try {
     const url = new URL(req.url, 'http://localhost');
     let resource = decodeURIComponent(url.pathname);
+    if (resource === '/groom' || resource === '/groom/') resource = '/groom/index.html';
     if (resource === '/favicon.ico') { res.writeHead(204); res.end(); return; }
     if (resource === '/_next/image') {
       const key = `${url.searchParams.get('url')}|${url.searchParams.get('w')}|${url.searchParams.get('q')}`;

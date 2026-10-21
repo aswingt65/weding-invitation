@@ -1,5 +1,17 @@
 # Verification — 20 October 2026
 
+## Separate groom invitation — 21 October 2026
+
+- Added `/groom` and `/groom/` in the local server and Vercel configuration. All three local paths (`/`, `/groom`, `/groom/`) return HTTP 200. Live Vercel deployment has not been performed as part of this change.
+- Bride HTML, client JavaScript, and stylesheet SHA-256 hashes match their pre-task versions exactly. The build copies them unchanged; groom content, page bundle, and theme are separate.
+- Confirmed groom-first name order, “our beloved son”, Aswin George Thomas sign-off, full Trinity church name, groom-parent contact card, all six groom-page telephone links, and the three supplied venue links. Bride retains the shortened church name.
+- Chromium checks covered widths 320, 360, 390, 430, 599, 600, 767, 768, 899, 900, 1024, 1280, 1440, 1920, and 2560, plus 844×390 landscape. No page-wide overflow or clipped invitation text was detected. Cover, interior, venues, and contact screenshots were visually inspected across phone, tablet, laptop, and desktop sizes.
+- At 320px with text enlarged to 200%, the opening cover fits and invitation text wraps without clipping or horizontal overflow. This is text enlargement emulation, not a physical-device or native browser-zoom test.
+- Keyboard opening, closed-content inertness, curtain removal, reveal cleanup, music pause, reduced-motion opening/backgrounds, and the fallback sharing dialog passed. Sharing focus stays in the dialog, Escape closes it, and focus returns to the trigger.
+- Captured native-share data and copy-link output through test stubs; both contain `/groom` and groom-first names. No invitations were sent. The mobile sharing backdrop covers the full viewport.
+- Final checks report no page JavaScript exceptions or failed first-party asset requests. External Google maps can load asynchronously; their directions links remain available. Build, syntax, bride integrity, and both content validation scripts pass.
+- Screenshots and temporary browser checks are in ignored `output/playwright/groom-*` files.
+
 ## Blush paper curtains — 21 October 2026
 
 ### Continuous surfaces and glossy variation
