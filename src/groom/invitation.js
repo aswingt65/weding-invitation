@@ -556,7 +556,7 @@
                         whileInView: t ? { opacity: 1, y: 0 } : {},
                         viewport: { once: !0 },
                         transition: { duration: 0.8, delay: 0.2 },
-                        className: "flex flex-col items-center text-center",
+                        className: "event-info-card groom-engagement-detail flex flex-col items-center text-center p-8",
                         children: [
                           (0, s.jsx)("div", {
                             className:
@@ -579,7 +579,7 @@
                         whileInView: t ? { opacity: 1, y: 0 } : {},
                         viewport: { once: !0 },
                         transition: { duration: 0.8, delay: 0.4 },
-                        className: "flex flex-col items-center text-center",
+                        className: "event-info-card groom-engagement-detail flex flex-col items-center text-center p-8",
                         children: [
                           (0, s.jsx)("div", {
                             className:
@@ -602,7 +602,7 @@
                         whileInView: t ? { opacity: 1, y: 0 } : {},
                         viewport: { once: !0 },
                         transition: { duration: 0.8, delay: 0.6 },
-                        className: "flex flex-col items-center text-center",
+                        className: "event-info-card groom-engagement-detail flex flex-col items-center text-center p-8",
                         children: [
                           (0, s.jsx)("div", {
                             className:
@@ -634,7 +634,7 @@
                     viewport: { once: !0 },
                     transition: { duration: 0.8, delay: 0.8 },
                     className:
-                      "relative z-10 mb-12 flex flex-col items-center text-center border-t border-accent/10 pt-8",
+                      "groom-engagement-reception relative z-10 mb-12 flex flex-col items-center text-center rounded-3xl p-8",
                     children: [
                       (0, s.jsx)("h3", {
                         className:
@@ -742,24 +742,30 @@ function GroomCurtains({ open, onOpen }) {
   return (0, s.jsxs)('div', {
     className: 'groom-curtains' + (open ? ' is-opening' : ''),
     children: [
-      (0, s.jsx)('div', { className: 'groom-panel groom-panel-left', 'aria-hidden': true }),
-      (0, s.jsx)('div', { className: 'groom-panel groom-panel-right', 'aria-hidden': true }),
+      ...['left', 'right'].map(side => (0, s.jsx)('div', {
+        className: 'groom-panel groom-panel-' + side, 'aria-hidden': true,
+        children: Array.from({length: 6}, (_, index) => (0, s.jsx)('span', {
+          className: 'groom-cover-glint',
+          style: {'--glint-x': (10 + (index * 17) % 75) + '%',
+            '--glint-y': [8, 17, 86, 92, 4, 78][index] + '%',
+            '--glint-delay': (-index * 1.3 - (side === 'right' ? 3 : 0)) + 's'}
+        }, index))
+      }, side)),
       (0, s.jsxs)('button', {
         type: 'button', className: 'groom-open', onClick: onOpen, disabled: open,
         'aria-label': 'Open Arun and Anthea’s wedding invitation',
         children: [
           (0, s.jsx)('span', { className: 'groom-edition', children: 'The wedding of' }),
-          (0, s.jsxs)('span', { className: 'groom-monogram', 'aria-hidden': true, children: [
-            (0, s.jsx)('span', {children: 'A'}),
-            (0, s.jsx)('em', {children: '&'}),
-            (0, s.jsx)('span', {children: 'A'})
-          ]}),
+          (0, s.jsx)('span', { className: 'groom-monogram', 'aria-hidden': true,
+            children: (0, s.jsx)('img', {src:'/assets/groom-aa-wax-seal.png', alt:'',
+              width:1024, height:1024, fetchPriority:'high', draggable:false})
+          }),
           (0, s.jsx)('span', { className: 'groom-cover-names', children: 'Arun & Anthea' }),
           (0, s.jsx)('span', { className: 'groom-cover-date', children: '30 December 2026' }),
           (0, s.jsxs)('span', { className: 'groom-open-prompt', children: [
-            (0, s.jsx)('img', {src:'/assets/angel-silhouette.png', alt:'', width:40, height:40}),
+            (0, s.jsx)('img', {src:'/cupid.png', alt:'', width:60, height:70}),
             (0, s.jsx)('span', {children:'Open to Reveal'}),
-            (0, s.jsx)('img', {src:'/assets/angel-silhouette.png', alt:'', width:40, height:40})
+            (0, s.jsx)('img', {src:'/cupid.png', alt:'', width:60, height:70})
           ]}),
           (0, s.jsx)('span', {className:'groom-tap', children:'Tap to open your invitation'})
         ]
@@ -767,16 +773,57 @@ function GroomCurtains({ open, onOpen }) {
     ]
   });
 }
-function GroomAtmosphere() {
+function GroomAtmosphere({ open }) {
+  const backdrop = i.useRef(null);
+  i.useEffect(() => {
+    if (!open) return;
+    const element = backdrop.current;
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let frame = 0, current = 0, target = 0;
+    const tick = () => {
+      current += (target - current) * .085;
+      element.style.setProperty('--letter-scroll', current.toFixed(3) + 'px');
+      frame = Math.abs(target - current) > .04 ? requestAnimationFrame(tick) : 0;
+    };
+    const update = () => {
+      if (reduced.matches) {
+        cancelAnimationFrame(frame);
+        frame = 0; current = 0;
+        element.style.setProperty('--letter-scroll', '0px');
+        return;
+      }
+      const distance = Math.max(1, document.documentElement.scrollHeight - innerHeight);
+      target = -32 * Math.min(1, Math.max(0, scrollY / distance));
+      if (!frame) frame = requestAnimationFrame(tick);
+    };
+    window.addEventListener('scroll', update, {passive:true});
+    window.addEventListener('resize', update);
+    reduced.addEventListener('change', update);
+    update();
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener('scroll', update);
+      window.removeEventListener('resize', update);
+      reduced.removeEventListener('change', update);
+    };
+  }, [open]);
   return (0, s.jsxs)('div', {
-    className:'groom-atmosphere', 'aria-hidden':true,
+    ref:backdrop,
+    className:'groom-atmosphere' + (open ? ' is-visible' : ''), 'aria-hidden':true,
     children:[
-      (0,s.jsx)('div',{className:'groom-halo groom-halo-one'}),
-      (0,s.jsx)('div',{className:'groom-halo groom-halo-two'}),
-      ...Array.from({length:8},(_,j)=>(0,s.jsx)('span',{
-        className:'groom-mote',
-        style:{left:(8+j*12)+'%',top:(12+(j*17)%76)+'%',animationDelay:(-j*3)+'s',animationDuration:(18+j*2)+'s'}
-      },j))
+      (0,s.jsx)('div',{className:'groom-letter-parallax',children:
+        (0,s.jsx)('img',{className:'groom-letter-image',src:'/assets/groom-letter-blue.jpg',
+          alt:'',width:736,height:1104,decoding:'async'})
+      }),
+      (0,s.jsx)('div',{className:'groom-letter-soften'}),
+      (0,s.jsx)('div',{className:'groom-letter-sparkles',children:
+        Array.from({length:12},(_,j)=>(0,s.jsx)('span',{
+          className:'groom-letter-sparkle',
+          style:{left:(5+(j*31)%90)+'%', '--sparkle-size':(7+(j%4)*3)+'px',
+            '--sparkle-duration':(13+(j%5)*2)+'s','--sparkle-delay':(-j*3.7)+'s',
+            '--sparkle-sway':(j%2 ? 16 : -16)+'px'}
+        },j))
+      })
     ]
   });
 }
@@ -1157,7 +1204,7 @@ function GroomReveal() {
                 }),
               }),
               (0, s.jsx)(P, { isOpen: e }),
-              (0,s.jsx)(GroomAtmosphere, {}),
+              (0,s.jsx)(GroomAtmosphere, {open:e}),
               (0, s.jsx)(g, { isOpen: e }),
             ],
           })

@@ -1,5 +1,24 @@
 # Verification — 20 October 2026
 
+## Groom pale-blue letter - 21 October 2026
+
+- Used the supplied download (3).jpg unchanged as a continuous cover-fitted background. Added gentle scroll parallax, slow image drift and twelve subtle white sparkles behind the content. Updated interior palette to slate-blue accents and pearl-white cards.
+- Chromium at widths 320, 390, 768, 1440 and 1920 confirmed image loading, no horizontal overflow, hidden decoration before opening and non-interactive decorative layers. Scroll changed the parallax position, and sparkle transforms advanced. No page exceptions occurred.
+- Inspected phone and desktop introduction screenshots plus phone event/contact sections. Both groom parent phone links remain present. Reduced-motion emulation disables image animation, parallax and sparkles.
+- Groom opening HTML and its CSS block match the pre-change snapshots exactly. Bride source is untouched. Build, JavaScript syntax, content and reference integrity checks pass.
+- Screenshots: output/playwright/groom-letter-*.png. Asset notes: src/assets/groom-letter-background.md.
+
+
+## Groom blue opening - 21 October 2026
+
+- Supplied blue-white/gold artwork on portrait screens; generated matching landscape artwork for wide screens. Panels show adjacent halves of one image without repeating tiles or a center border.
+- Added matching blue A&A wax seal with original alpha outline, original Cupid artwork, gentle floating motion, soft sheen and twelve edge glints. Initial HTML and client markup agree.
+- Chromium checks at 320x568, 390x844, 768x1024, 1440x900, 1920x1080 and 844x390: all opening content fits, images load, no horizontal overflow or page exceptions. Inspected phone, tablet and desktop screenshots. Final wide asset and moving seal confirmed in browser.
+- Keyboard Enter and click open the invitation; curtains clean up and scrolling resumes. Reduced-motion emulation disables seal movement and uses the short reveal.
+- Build, syntax, content and reference checks pass. Bride HTML, JavaScript and CSS remain unchanged. Groom interior content and theme remain unchanged.
+- Screenshots: output/playwright/groom-blue-*.png. Sources and prompts: src/assets/groom-blue-cover.md.
+
+
 ## Bride marble background — 21 October 2026
 
 - Used the supplied portrait JPG unchanged and generated a matching wide landscape adaptation. A responsive picture chooses between them by viewport aspect ratio; the assets are locally bundled and documented in `src/assets/bride-marble-background.md`.

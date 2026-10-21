@@ -7,13 +7,13 @@ Customized invitations for Dr. Anthea Judy Gilbert and Dr. Arun Joy Thomas. The 
 | Path | Invitation | Source |
 | --- | --- | --- |
 | `/` | Existing bride card, unchanged | `src/index.html`, `src/invitation.js`, `src/styles.css` |
-| `/groom` | Arun's bottle-green, ivory and antique-brass card | `src/groom/index.html`, `src/groom/invitation.js`, `src/groom/styles.css` |
+| `/groom` | Arun's blue-white opening and mist-blue invitation | `src/groom/index.html`, `src/groom/invitation.js`, `src/groom/styles.css` |
 
 Both paths are built together. `vercel.json` routes `/groom` and `/groom/` to the groom document, so a second project or branch is unnecessary. The groom document loads its own page JavaScript and stylesheet; the fonts, angel artwork, music, and common runtime assets are shared. Sharing either invitation uses its current URL.
 
 The groom card lists Arun first and says “our beloved son”; the sign-off is “Aswin George Thomas”. Its contact card contains Mr. Thomas K John and Mrs. Jessy K George with `9497816261` and `9497331582`. Only this card restores “Trinity (Medical College) Mar Thoma Syrian Church”; the bride retains “Trinity Medical College Church”.
 
-The groom theme uses a woven bottle-green curtain, brass monogram, ivory interior, small gold reveal particles, and slow background watermarks. It includes keyboard opening, reduced-motion alternatives, and compact phone-sized music controls. Its theme is code-based and adds no remote visual assets.
+The groom opening uses the supplied blue-white glitter artwork, a matching blue A&A wax seal, original mirrored Cupids, soft sheen and edge glints. A wide background adaptation serves landscape screens. The invitation interior uses the supplied pale-blue artwork in `src/assets/groom-letter-blue.jpg`, slate-blue text, rounded ivory cards and muted champagne borders, with the large outer panels removed. The continuous background moves gently with scroll progress, with twelve small floating white sparkles. Reduced-motion preferences disable image drift, scroll parallax and sparkles. Keyboard opening and compact phone-sized music controls remain. All artwork is bundled locally; opening asset sources and generation prompts are in `src/assets/groom-blue-cover.md`.
 
 To edit groom content, keep both `src/groom/index.html` (initial HTML) and `src/groom/invitation.js` (client rendering) synchronized to avoid hydration mismatches. Edit only `src/groom/styles.css` for groom theme changes. The build appends these overrides to a copy of the base CSS without modifying the bride stylesheet. Run `npm run build` and `npm run verify` after editing. Restart an already-running server once after this routing update.
 
